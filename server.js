@@ -9,7 +9,9 @@ var jsonParser = bodyParser.json();
 app.use( jsonParser );
 
 app.get( '/', function( req, res) {
-	res.status(200).send( 'Root Page Called' );
+	res.status( 200 ).json( process.env );
+	//console.log( JSON.stringify( process.env ) );
+	//res.status(200).send( 'Root Page Called' );
 });
 
 //GET /todos?completed=true&q=work
