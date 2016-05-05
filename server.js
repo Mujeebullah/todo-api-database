@@ -8,10 +8,9 @@ var jsonParser = bodyParser.json();
 
 app.use( jsonParser );
 
-app.get( '/', function( req, res) {
-	res.status( 200 ).json( process.env );
+app.get( '/', function( req, res) {	
 	//console.log( JSON.stringify( process.env ) );
-	//res.status(200).send( 'Root Page Called' );
+	res.status(200).send( 'Root Page Called' );
 });
 
 //GET /todos?completed=true&q=work
@@ -74,7 +73,7 @@ app.put( '/todos:id', function(req, res){
 
 db.sequelize.sync().then( function(){
 	return app.listen( PORT, function(){
-	console.log( 'Todo api with database working at port :' + PORT );
+	console.log( 'Todo api with database working at port :' + PORT );	
 	});
 }).catch( function(e ){
 	console.log( e );
